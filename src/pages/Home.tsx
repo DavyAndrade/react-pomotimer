@@ -1,4 +1,4 @@
-import Tasks from "../components/homepage/Tasks";
+import Tasks from "../components/homepage/Tasks/Tasks";
 
 export default function Home() {
   return (
