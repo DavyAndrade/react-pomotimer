@@ -7,7 +7,6 @@ export function useTasks() {
   /* Adicionar tarefa */
   const addTask = (newTask: Task) => {
     setTasks([...tasks, newTask]);
-    console.log("Task added:", tasks);
   }
 
   /* Editar tarefa */
@@ -17,7 +16,6 @@ export function useTasks() {
         task.id === taskId ? { ...task, title: "Teste" } : task
       )
     );
-    console.log("Task edited:", tasks);
   }
 
   /* Marcar tarefa como completa */
@@ -27,13 +25,11 @@ export function useTasks() {
         task.id === taskId ? { ...task, completed: !task.completed } : task
       )
     );
-    console.log("Task toggled:", tasks);
   }
 
     /* Remover tarefa */
     const removeTask = (taskId: string) => {
       setTasks(tasks.filter((task) => task.id !== taskId));
-      console.log("Task removed:", tasks);
     };
 
   return {
