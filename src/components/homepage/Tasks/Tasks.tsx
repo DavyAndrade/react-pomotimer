@@ -4,7 +4,7 @@ import TaskCard from "./TaskCard";
 import { useTasks } from "../../../hooks/useTasks";
 
 export default function Tasks() {
-  const { tasks, addTask, editTask, toggleCompleteTask, removeTask } = useTasks();
+  const { tasks, addTask, editTask, toggleComplete, removeTask } = useTasks();
 
   /* 
     TODO: 
@@ -31,7 +31,7 @@ export default function Tasks() {
         {/* Lista de Tarefas */}
 
         {tasks.length > 0 ? (
-          tasks.map((task) => <TaskCard key={task.id} task={task} removeTask={removeTask} toggleCompleteTask={toggleCompleteTask} editTask={editTask} />)
+          tasks.map((task) => <TaskCard key={task.id} task={task} removeTask={removeTask} toggleComplete={toggleComplete} editTask={editTask} />)
         ) : (
           <div>
             <p className="text-gray-500 text-center text-lg">

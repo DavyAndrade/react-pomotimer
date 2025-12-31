@@ -19,7 +19,7 @@ export function useTasks() {
   };
 
   /* Marcar tarefa como completa/incompleta */
-  const toggleCompleteTask = (taskId: string) => {
+  const toggleComplete = (taskId: string) => {
     setTasks(
       tasks.map((task) =>
         task.id === taskId ? { ...task, completed: !task.completed } : task
@@ -36,7 +36,7 @@ export function useTasks() {
     tasks,
     addTask,
     editTask,
-    toggleCompleteTask,
+    toggleComplete,
     removeTask,
   };
 }

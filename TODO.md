@@ -16,7 +16,7 @@ Lista de tarefas para desenvolvimento do projeto Pomotimer.
   - [x] Adicionar validação de formulário
 
 - [ ] **Página do Pomodoro**
-  - [ ] Criar página `Pomodoro.tsx` em `/pages`
+  - [x] Criar página `Pomodoro.tsx` em `/pages`
   - [ ] Implementar timer/contador regressivo
   - [ ] Adicionar controles: Iniciar, Pausar, Resetar, Skippar
   - [ ] Mostrar informações da tarefa ativa
@@ -27,9 +27,9 @@ Lista de tarefas para desenvolvimento do projeto Pomotimer.
   - [ ] Adicionar notificação sonora ao fim do timer (opcional)
 
 - [ ] **Navegação para Pomodoro**
-  - [ ] Tornar TaskCard clicável
-  - [ ] Implementar rota `/pomodoro/:taskId`
-  - [ ] Passar task selecionada para página do Pomodoro
+  - [x] Tornar TaskCard clicável
+  - [x] Implementar rota `/pomodoro/:taskId`
+  - [x] Passar task selecionada para página do Pomodoro
   - [ ] Criar contexto/estado global para task ativa (opcional)
 
 ---
@@ -51,16 +51,16 @@ Lista de tarefas para desenvolvimento do projeto Pomotimer.
 
 ### 🧹 Código Limpo
 
-- [ ] **Melhorar useTasks.ts**
-  - [ ] Remover `console.log` desnecessários
-  - [ ] Padronizar nomenclatura (remover "handle" dos métodos)
-  - [ ] Adicionar tipagem para `editTask` com `Partial<Task>`
-  - [ ] Renomear `toggleCompleteTask` para `toggleComplete`
+- [x] **Melhorar useTasks.ts**
+  - [x] Remover `console.log` desnecessários
+  - [x] Padronizar nomenclatura (remover "handle" dos métodos)
+  - [x] Adicionar tipagem para `editTask` com `Partial<Task>`
+  - [x] Renomear `toggleCompleteTask` para `toggleComplete`
 
 - [ ] **Otimizar TaskCard**
-  - [ ] Remover funções wrapper desnecessárias
-  - [ ] Passar callbacks diretamente: `onClick={() => onRemoveTask(task.id)}`
-  - [ ] Simplificar lógica de renderização condicional
+  - [x] Remover funções wrapper desnecessárias
+  - [x] Passar callbacks diretamente: `onClick={() => onRemoveTask(task.id)}`
+  - [x] Simplificar lógica de renderização condicional
 
 - [ ] **Componentizar melhor**
   - [ ] Extrair `ProgressBar` de TaskCard (componente reutilizável)

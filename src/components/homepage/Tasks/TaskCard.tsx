@@ -2,18 +2,19 @@ import { Check, Pencil, Target, Trash2 } from "lucide-react";
 import type Task from "../../../models/Task";
 import { useState } from "react";
 import TaskEditForm from "./TaskEditForm";
+import { Link } from "react-router-dom";
 
 type TaskCardProps = {
   task: Task;
   removeTask: (taskId: string) => void;
-  toggleCompleteTask: (taskId: string) => void;
+  toggleComplete: (taskId: string) => void;
   editTask: (taskId: string, updatedTask: Partial<Task>) => void;
 };
 
 export default function TaskCard({
   task,
   removeTask,
-  toggleCompleteTask,
+  toggleComplete,
   editTask,
 }: TaskCardProps) {
   const [isEditing, setIsEditing] = useState(false);
@@ -34,8 +35,8 @@ export default function TaskCard({
   }
 
   return (
-    <article
-      className={`w-full flex flex-col items-start gap-2 p-6 border-2 ${
+    <Link to={`pomodoro/${task.id}`}
+      className={`w-full flex flex-col items-start gap-2 p-6 border-2 cursor-auto ${
         task.completed
           ? "border-green-600 opacity-75"
           : "border-gray-600 hover:border-blue-400"
@@ -49,7 +50,11 @@ export default function TaskCard({
               ? "bg-green-600 border-green-600"
               : "hover:border-green-500"
           }`}
-          onClick={() => toggleCompleteTask(task.id)}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleComplete(task.id);
+          }}
         >
           {task.completed && <Check size={20} />}
         </button>
@@ -89,14 +94,17 @@ export default function TaskCard({
               <p className="text-gray-400 text-xs">{progress}% concluído</p>
             </div>
           </div>
-          <div></div>
         </div>
 
         <div className="flex gap-1">
           {/* Botão de Editar */}
           <button
             className="text-blue-400 hover:bg-gray-700 p-2 rounded-sm hover:cursor-pointer"
-            onClick={() => setIsEditing(true)}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setIsEditing(true);
+            }}
           >
             <Pencil size={20} />
           </button>
@@ -104,12 +112,16 @@ export default function TaskCard({
           {/* Botão de Remover */}
           <button
             className="text-red-400 hover:bg-gray-700 p-2 rounded-sm hover:cursor-pointer"
-            onClick={() => removeTask(task.id)}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              removeTask(task.id);
+            }}
           >
             <Trash2 size={20} />
           </button>
         </div>
       </div>
-    </article>
+    </Link>
   );
 }

@@ -16,7 +16,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/statistics" element={<Statistics />} />
-        <Route path="/pomodoro/:taskid" element={<Pomodoro />} />
+        <Route path="/pomodoro/:taskId" element={<Pomodoro />} />
       </Routes>
 
       <Footer />
