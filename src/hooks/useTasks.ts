@@ -7,30 +7,30 @@ export function useTasks() {
   /* Adicionar tarefa */
   const addTask = (newTask: Task) => {
     setTasks([...tasks, newTask]);
-  }
+  };
 
   /* Editar tarefa */
-  const editTask = (taskId: string) => {
+  const editTask = (taskId: string, updatedTask: Partial<Task>) => {
     setTasks(
       tasks.map((task) =>
-        task.id === taskId ? { ...task, title: "Teste" } : task
+        task.id === taskId ? { ...task, ...updatedTask } : task
       )
     );
-  }
+  };
 
-  /* Marcar tarefa como completa */
+  /* Marcar tarefa como completa/incompleta */
   const toggleCompleteTask = (taskId: string) => {
     setTasks(
       tasks.map((task) =>
         task.id === taskId ? { ...task, completed: !task.completed } : task
       )
     );
-  }
+  };
 
-    /* Remover tarefa */
-    const removeTask = (taskId: string) => {
-      setTasks(tasks.filter((task) => task.id !== taskId));
-    };
+  /* Remover tarefa */
+  const removeTask = (taskId: string) => {
+    setTasks(tasks.filter((task) => task.id !== taskId));
+  };
 
   return {
     tasks,

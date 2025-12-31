@@ -2,8 +2,8 @@ import { useState } from "react";
 import type Task from "../../../models/Task";
 
 type TaskFormProps = {
-    onAddTask: (task: Task) => void;
-}
+  onAddTask: (task: Task) => void;
+};
 
 export default function TaskForm({ onAddTask }: TaskFormProps) {
   const [isShowForm, setIsShowForm] = useState(false);
@@ -11,8 +11,13 @@ export default function TaskForm({ onAddTask }: TaskFormProps) {
   const [description, setDescription] = useState<string>("");
   const [estimatedPomodoros, setEstimatedPomodoros] = useState<string>("4");
 
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setIsShowForm(false);
+    handleAddTask();
+  }
 
-  function addTask() {
+  function handleAddTask() {
     if (title.trim() === "") return;
     if (estimatedPomodoros.trim() === "") return;
 
@@ -29,12 +34,6 @@ export default function TaskForm({ onAddTask }: TaskFormProps) {
     setTitle("");
     setDescription("");
     setEstimatedPomodoros("4");
-  }
-
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setIsShowForm(false);
-    addTask();
   }
 
   return (

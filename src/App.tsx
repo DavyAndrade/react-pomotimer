@@ -5,6 +5,7 @@ import Settings from "./pages/Settings";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Statistics from "./pages/Statistics";
+import Pomodoro from "./pages/Pomodoro";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/statistics" element={<Statistics />} />
+        <Route path="/pomodoro/:taskid" element={<Pomodoro />} />
       </Routes>
 
       <Footer />

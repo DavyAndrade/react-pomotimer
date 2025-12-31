@@ -8,12 +8,12 @@ Lista de tarefas para desenvolvimento do projeto Pomotimer.
 
 ### ⚡ Funcionalidades Críticas
 
-- [ ] **Edição de Tarefas**
-  - [ ] Criar componente `TaskEditForm.tsx`
-  - [ ] Implementar lógica real no `editTask` do useTasks (atualmente retorna "Teste")
-  - [ ] Adicionar estado para controlar qual task está sendo editada
-  - [ ] Permitir editar: título, descrição e pomodoros estimados
-  - [ ] Adicionar validação de formulário
+- [x] **Edição de Tarefas**
+  - [x] Criar componente `TaskEditForm.tsx`
+  - [x] Implementar lógica real no `editTask` do useTasks (atualmente retorna "Teste")
+  - [x] Adicionar estado para controlar qual task está sendo editada
+  - [x] Permitir editar: título, descrição e pomodoros estimados
+  - [x] Adicionar validação de formulário
 
 - [ ] **Página do Pomodoro**
   - [ ] Criar página `Pomodoro.tsx` em `/pages`

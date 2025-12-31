@@ -8,7 +8,7 @@ export default function Tasks() {
 
   /* 
     TODO: 
-    - Editar tarefa
+    - Editar tarefa (estilização do formulário de edição)
     - Abrir detalhes da tarefa
   */
  
@@ -31,7 +31,7 @@ export default function Tasks() {
         {/* Lista de Tarefas */}
 
         {tasks.length > 0 ? (
-          tasks.map((task) => <TaskCard key={task.id} task={task} onToggleCompleteTask={toggleCompleteTask} onRemoveTask={removeTask} onEditTask={editTask} />)
+          tasks.map((task) => <TaskCard key={task.id} task={task} removeTask={removeTask} toggleCompleteTask={toggleCompleteTask} editTask={editTask} />)
         ) : (
           <div>
             <p className="text-gray-500 text-center text-lg">

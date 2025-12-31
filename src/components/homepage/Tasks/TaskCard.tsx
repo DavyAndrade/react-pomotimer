@@ -1,29 +1,31 @@
 import { Check, Pencil, Target, Trash2 } from "lucide-react";
 import type Task from "../../../models/Task";
+import { useState } from "react";
+import TaskEditForm from "./TaskEditForm";
 
 type TaskCardProps = {
   task: Task;
-  onRemoveTask: (taskId: string) => void;
-  onEditTask: (taskId: string) => void;
-  onToggleCompleteTask: (taskId: string) => void;
+  removeTask: (taskId: string) => void;
+  toggleCompleteTask: (taskId: string) => void;
+  editTask: (taskId: string, updatedTask: Partial<Task>) => void;
 };
 
 export default function TaskCard({
   task,
-  onRemoveTask,
-  onEditTask,
-  onToggleCompleteTask,
+  removeTask,
+  toggleCompleteTask,
+  editTask,
 }: TaskCardProps) {
-  function removeTask() {
-    onRemoveTask(task.id);
-  }
+  const [isEditing, setIsEditing] = useState(false);
 
-  function editTask() {
-    onEditTask(task.id);
-  }
-
-  function toggleCompleteTask() {
-    onToggleCompleteTask(task.id);
+  if (isEditing) {
+    return (
+      <TaskEditForm
+        task={task}
+        onClose={() => setIsEditing(false)}
+        editTask={editTask}
+      />
+    );
   }
 
   return (
@@ -42,7 +44,7 @@ export default function TaskCard({
               ? "bg-green-600 border-green-600"
               : "hover:border-green-500"
           }`}
-          onClick={toggleCompleteTask}
+          onClick={() => toggleCompleteTask(task.id)}
         >
           {task.completed && <Check size={20} />}
         </button>
@@ -50,7 +52,13 @@ export default function TaskCard({
         <div className="flex flex-col gap-4 flex-1">
           {/* Título e Descrição */}
           <div className="flex flex-col gap-1">
-            <h3 className={`font-bold text-lg ${task.completed ? "line-through" : ""}`}>{task.title}</h3>
+            <h3
+              className={`font-bold text-lg ${
+                task.completed ? "line-through" : ""
+              }`}
+            >
+              {task.title}
+            </h3>
 
             {task.description && (
               <p className="text-gray-400 text-sm">{task.description}</p>
@@ -60,8 +68,8 @@ export default function TaskCard({
           <div className="flex flex-col items-start gap-2">
             {/* Barra de Progresso */}
             <p className="flex items-center gap-1 text-sm text-gray-400">
-              <Target className="text-blue-400" size={20} /> {task.pomodorosCompleted} /{" "}
-              {task.estimatedPomodoros} pomodoros
+              <Target className="text-blue-400" size={20} />{" "}
+              {task.pomodorosCompleted} / {task.estimatedPomodoros} pomodoros
             </p>
 
             <div className="w-full flex flex-col items-start gap-1">
@@ -88,14 +96,17 @@ export default function TaskCard({
 
         <div className="flex gap-1">
           {/* Botão de Editar */}
-          <button className="text-blue-400 hover:bg-gray-700 p-2 rounded-sm hover:cursor-pointer" onClick={editTask}>
+          <button
+            className="text-blue-400 hover:bg-gray-700 p-2 rounded-sm hover:cursor-pointer"
+            onClick={() => setIsEditing(true)}
+          >
             <Pencil size={20} />
           </button>
 
           {/* Botão de Remover */}
           <button
             className="text-red-400 hover:bg-gray-700 p-2 rounded-sm hover:cursor-pointer"
-            onClick={removeTask}
+            onClick={() => removeTask(task.id)}
           >
             <Trash2 size={20} />
           </button>
