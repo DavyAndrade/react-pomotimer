@@ -1,11 +1,50 @@
-import Tasks from "../components/homepage/Tasks/Tasks";
+import { EllipsisVertical } from "lucide-react";
+import TaskCard from "../components/homepage/TaskCard";
+import { useTasks } from "../hooks/useTasks";
+import TaskForm from "../components/homepage/TaskForm";
 
 export default function Home() {
+  const { tasks, addTask, editTask, toggleComplete, removeTask } = useTasks();
+
   return (
-    <main className="w-full bg-gray-800 text-white flex flex-col py-16 items-center px-4">
-      <div className="flex flex-col justify-center items-center w-full gap-4 md:max-w-3xl">
-        <Tasks />
+    <section className="w-full flex flex-col justify-between items-center gap-8">
+      {/* Cabeçalho */}
+      <div className="flex justify-between w-full border-b-2 border-gray-600 pb-4">
+        <h2 className="text-xl font-bold">Tarefas</h2>
+        <button className="flex justify-center items-center p-1 bg-gray-700 rounded-md hover:bg-gray-600 hover:cursor-pointer transition-colors">
+          <EllipsisVertical size={20} />
+        </button>
       </div>
-    </main>
+
+      {/* Container de Tarefas */}
+      <div className="w-full flex flex-col justify-center items-center gap-8">
+        {/* Botão de Adicionar Tarefa */}
+
+        <TaskForm onAddTask={addTask} />
+
+        {/* Lista de Tarefas */}
+
+        {tasks.length > 0 ? (
+          tasks.map((task) => (
+            <TaskCard
+              key={task.id}
+              task={task}
+              removeTask={removeTask}
+              toggleComplete={toggleComplete}
+              editTask={editTask}
+            />
+          ))
+        ) : (
+          <div>
+            <p className="text-gray-500 text-center text-lg">
+              Nenhuma tarefa adicionada ainda.
+            </p>
+            <p className="text-gray-500 text-center text-lg">
+              Comece adicionando sua primeira tarefa acima!
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
   );
 }

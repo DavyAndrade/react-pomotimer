@@ -1,7 +1,7 @@
 import { ChartColumnBig, House, Settings, Timer } from "lucide-react";
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function Header() {
   const navItems = [
     {
       label: "Início",

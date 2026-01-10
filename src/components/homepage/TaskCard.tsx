@@ -1,8 +1,8 @@
 import { Check, Pencil, Target, Trash2 } from "lucide-react";
-import type Task from "../../../models/Task";
+import type Task from "../../models/Task";
 import { useState } from "react";
-import TaskEditForm from "./TaskEditForm";
 import { Link } from "react-router-dom";
+import TaskEditForm from "./TaskEditForm";
 
 type TaskCardProps = {
   task: Task;
