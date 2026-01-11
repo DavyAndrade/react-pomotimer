@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import TaskEditForm from "./EditTaskForm";
 import Card from "../ui/Card";
 import Button from "../ui/Button";
+import ProgressBar from "../ui/ProgressBar";
 
 type TaskCardProps = {
   task: Task;
@@ -57,7 +58,11 @@ export default function AddTaskCard({
             toggleComplete(task.id);
           }}
         >
-          {task.completed ? <Check size={12} /> : <X size={12} className="bg-clip-text text-transparent" />}
+          {task.completed ? (
+            <Check size={12} />
+          ) : (
+            <X size={12} className="bg-clip-text text-transparent" />
+          )}
         </Button>
 
         <Link to={`pomodoro/${task.id}`} className="flex flex-col gap-4 flex-1">
@@ -78,20 +83,21 @@ export default function AddTaskCard({
 
           <div className="flex flex-col items-start gap-2">
             {/* Barra de Progresso */}
-            <p className="flex items-center gap-1 text-sm text-gray-400">
-              <Target className="text-blue-400" size={20} />{" "}
+            <p className={`flex items-center gap-2 text-sm text-gray-400 `}>
+              <Target
+                className={`text-blue-400 ${
+                  task.completed ? "text-green-500" : "text-blue-400"
+                }`}
+                size={20}
+              />{" "}
               {task.pomodorosCompleted} / {task.estimatedPomodoros} pomodoros
             </p>
 
             <div className="w-full flex flex-col items-start gap-1">
-              <div className="w-full h-2 bg-gray-700 rounded-md overflow-hidden">
-                <div
-                  className="h-full bg-blue-400"
-                  style={{
-                    width: `${progress}%`,
-                  }}
-                ></div>
-              </div>
+              <ProgressBar
+                progress={progress}
+                color={task.completed ? "bg-green-500" : "bg-blue-400"}
+              />
               <p className="text-gray-400 text-xs">{progress}% concluído</p>
             </div>
           </div>
