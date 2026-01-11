@@ -72,6 +72,7 @@ export default function AddTaskForm({ onAddTask }: AddTaskFormProps) {
             value={estimatedPomodoros}
             onChange={(e) => setEstimatedPomodoros(e.target.value)}
             min={1}
+            required
           />
 
           <div className="flex w-full gap-2">

@@ -1,4 +1,5 @@
 import { forwardRef, type InputHTMLAttributes } from "react";
+import { Label } from "./Typography";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -11,7 +12,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div className="flex flex-col gap-2 w-full">
-        <label htmlFor={props.id}>{label}</label>
+        <Label htmlFor={props.id} required={props.required}>
+          {label}
+        </Label>
         <input ref={ref} className={`${baseStyles} ${className}`} {...props} />
       </div>
     );

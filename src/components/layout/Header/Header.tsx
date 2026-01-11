@@ -1,5 +1,6 @@
 import { ChartColumnBig, House, Settings, Timer } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Heading } from "../../ui/Typography";
 
 export default function Header() {
   const navItems = [
@@ -27,8 +28,10 @@ export default function Header() {
           to="/"
           className="text-blue-600 text-xl text-center font-bold flex justify-center items-center gap-1 hover:text-blue-500 transition-colors"
         >
-          <Timer size={20} />
-          <h2>Pomotimer</h2>
+          <Heading as="h4" className="flex items-center text-blue-600 gap-1">
+            <Timer size={18} />
+            Pomotimer
+          </Heading>
         </Link>
 
         <nav className="flex gap-3">

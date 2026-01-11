@@ -9,7 +9,7 @@ export default function Home() {
 
   useEffect(() => {
     document.title = "Pomotimer - Tarefas";
-  });
+  }, [])
 
   return (
     <section className="w-full flex flex-col justify-between items-center gap-8">
