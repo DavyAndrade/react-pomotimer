@@ -9,9 +9,9 @@ type TimerProps = {
 };
 
 export default function Timer({ task, editTask }: TimerProps) {
-  const FOCUS_DURATION = 1 * 60;
-  const SHORT_BREAK_DURATION = 0.5 * 60;
-  const LONG_BREAK_DURATION = 1 * 60;
+  const FOCUS_DURATION = 25 * 60;
+  const SHORT_BREAK_DURATION = 5 * 60;
+  const LONG_BREAK_DURATION = 15 * 60;
 
   const [mode, setMode] = useState<"focus" | "shortBreak" | "longBreak">(
     "focus"
