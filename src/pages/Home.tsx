@@ -20,8 +20,8 @@ export default function Home() {
           Tarefas
         </Heading>
         <Button
-          size="icon"
-          variant="transparent"
+          size="personalized"
+          variant="personalized"
           className="flex justify-center items-center p-1 bg-gray-700 rounded-md hover:bg-gray-600 hover:cursor-pointer transition-colors"
         >
           <EllipsisVertical size={20} />
