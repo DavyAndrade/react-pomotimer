@@ -45,9 +45,9 @@ export function Text({
   className = "",
 }: TextProps) {
   const styles = {
-    body: "text-base text-white",
-    small: "text-sm text-white",
-    caption: "text-xs text-white",
+    body: "text-base",
+    small: "text-sm",
+    caption: "text-xs",
     muted: "text-sm text-gray-400",
   };
 

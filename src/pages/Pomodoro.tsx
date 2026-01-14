@@ -6,7 +6,7 @@ import Timer from "../components/pomodoropage/Timer";
 
 export default function Pomodoro() {
   const { taskId } = useParams<{ taskId: string }>();
-  const { tasks } = useTasks();
+  const { tasks, editTask } = useTasks();
   const navigate = useNavigate();
 
   const task = tasks.find((t) => t.id === taskId);
@@ -38,17 +38,17 @@ export default function Pomodoro() {
       <Button
         onClick={() => navigate("/")}
         className="text-left flex items-center gap-2 text-gray-400 hover:text-white transition-colors hover:cursor-pointer w-fit"
-        variant="transparent"
+        variant="personalized"
       >
         <MoveLeft size={18} />
         Voltar para Tarefas
       </Button>
 
-      <section className="w-full grid grid-cols-1 justify-center items-center bg-gray-700/50 p-8 rounded-lg shadow-xl gap-4">
+      <section className="w-full grid grid-cols-1 justify-center items-center bg-gray-800 border-2 border-gray-700 p-8 rounded-lg shadow-2xl gap-4">
         <div className="w-full flex flex-col justify-center items-center gap-1">
-          <Heading as="h1">{task.title}</Heading>
+          <Heading as="h3">{task.title}</Heading>
           {task.description && (
-            <Text className="text-gray-400 text-center w-[75ch]">
+            <Text className="text-center w-[75ch]" variant="muted">
               {task.description}
             </Text>
           )}
@@ -59,7 +59,7 @@ export default function Pomodoro() {
           completados
         </Text>
 
-        <Timer />
+        <Timer task={task} editTask={editTask} />
       </section>
     </>
   );
