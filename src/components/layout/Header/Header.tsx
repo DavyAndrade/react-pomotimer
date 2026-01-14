@@ -1,6 +1,7 @@
 import { ChartColumnBig, House, Settings, Timer } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Heading, Text } from "../../ui";
+import styles from "./Header.module.scss";
 
 export default function Header() {
   const navItems = [
@@ -22,19 +23,16 @@ export default function Header() {
   ];
 
   return (
-    <header className="flex justify-center items-center w-full sticky top-0 left-0 z-50 bg-gray-800">
-      <div className="flex w-full justify-between items-center gap-2 py-4 border-b-2 border-gray-700">
-        <Link
-          to="/"
-          className="text-blue-600 text-xl text-center font-bold flex justify-center items-center gap-1 hover:text-blue-500 transition-colors"
-        >
-          <Heading as="h4" className="flex items-center text-blue-600 gap-1">
+    <header className={styles.header}>
+      <div className={styles.container}>
+        <Link to="/" className={styles.logo}>
+          <Heading as="h4" className={styles.logoHeading}>
             <Timer size={18} />
             Pomotimer
           </Heading>
         </Link>
 
-        <nav className="flex gap-3">
+        <nav className={styles.nav}>
           {navItems.map((item) => (
             <NavigationItem
               key={item.label}
@@ -57,12 +55,9 @@ interface NavigationItemProps {
 
 function NavigationItem({ label, href, icon }: NavigationItemProps) {
   return (
-    <Link
-      to={href}
-      className="flex justify-center items-center gap-1 p-2 rounded-sm bg-gray-700/75 hover:bg-gray-700 hover:cursor-pointer transition-colors text-white"
-    >
+    <Link to={href} className={styles.navItem}>
       {icon}
-      <Text as="span" className="hidden md:block">
+      <Text as="span" className={styles.navItemLabel}>
         {label}
       </Text>
     </Link>
