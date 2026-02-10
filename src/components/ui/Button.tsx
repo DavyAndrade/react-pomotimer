@@ -18,7 +18,8 @@ export const Button = ({
   className = "",
   ...props
 }: ButtonProps) => {
-  const baseStyles = "hover:cursor-pointer transition-colors font-medium";
+  const baseStyles =
+    "hover:cursor-pointer transition-colors font-medium rounded-md";
 
   const variantStyles = {
     primary: "bg-blue-600 text-white hover:bg-blue-700",
@@ -44,10 +45,10 @@ export const Button = ({
 
   return (
     <button
-      {...props}
       className={`${className} ${baseStyles} ${variantStyles[variant]} ${
         roundedStyles[rounded]
       } ${sizeStyles[size]} ${fullWidth ? "w-full" : ""}`}
+      {...props}
     >
       {children}
     </button>

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { cn } from "../../lib/utils";
 
 // =========== HEADING ===========
 
@@ -23,7 +24,7 @@ export function Heading({
   };
 
   return (
-    <Component className={`${className} ${styles[Component]}`}>
+    <Component className={cn(className, styles[Component])}>
       {children}
     </Component>
   );
@@ -52,7 +53,7 @@ export function Text({
   };
 
   return (
-    <Component className={`${styles[variant]} ${className}`}>
+    <Component className={cn(styles[variant], className)}>
       {children}
     </Component>
   );
@@ -76,7 +77,7 @@ export function Label({
   return (
     <label
       htmlFor={htmlFor}
-      className={`text-sm font-medium text-white ${className}`}
+      className={cn("text-sm font-medium text-white", className)}
     >
       {children} {required && <span className="text-red-400 ml-1">*</span>}
     </label>
