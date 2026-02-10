@@ -334,6 +334,9 @@ interface ProgressBarProps {
      - **Reiniciar**: Reseta o timer atual para o início do estágio
      - **Avançar**: Pula para o próximo estágio (Foco → Intervalo Curto → Intervalo Longo)
    - **Ciclo Pomodoro**: Foco (25min) → Intervalo Curto (5min) → Intervalo Longo (15min após 4 pomodoros)
+   - **Feedbacks**:
+     - Sonoros: Sons ao iniciar e completar períodos
+     - Visuais: Indicadores de estado e animações de transição
    - `pomodorosCompleted` não é atualizado automaticamente ao completar um ciclo de foco
 
 2. **Página de Configurações** (`/settings`)
@@ -388,7 +391,13 @@ interface ProgressBarProps {
      - Intervalo Curto: 5 minutos (após cada pomodoro, exceto o 4º)
      - Intervalo Longo: 15 minutos (após 4 pomodoros)
    - Atualizar `pomodorosCompleted` automaticamente ao completar um ciclo de foco
-   - Notificação sonora ao fim de cada período (opcional)
+   - **Feedbacks Sonoros**:
+     - Som ao iniciar o timer (arquivo de áudio ou Web Audio API)
+     - Som ao completar cada período (diferente para foco vs intervalo)
+   - **Feedbacks Visuais**:
+     - Indicadores de estado (running, paused, completed)
+     - Animações de transição entre estágios
+     - Cores diferentes para foco (ex: vermelho) vs intervalos (verde/azul)
    - Exibir informações da tarefa (título, descrição, progresso)
 
 2. **Sistema de Configurações**

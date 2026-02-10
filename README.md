@@ -40,6 +40,8 @@ Diferente do Pomofocus tradicional, o **Pomotimer** permite criar e gerenciar **
   - Avançar para próximo estágio (Foco → Intervalo Curto → Intervalo Longo)
 - 📈 **Informações da Tarefa** - Título, descrição e progresso
 - 🔄 **Ciclo Pomodoro** - Foco (25min) → Intervalo Curto (5min) → Intervalo Longo (15min)
+- 🔊 **Feedbacks Sonoros** - Sons ao iniciar timer e ao completar cada período
+- ✨ **Feedbacks Visuais** - Indicadores de estado e animações de transição
 
 ### ⚙️ Configurações (`/settings`)
 

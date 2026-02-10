@@ -644,6 +644,8 @@ const [value, setValue] = useState(() => expensiveComputation());
    - Criar hook `useTimer`
    - Usar `setInterval` ou `requestAnimationFrame`
    - Gerenciar estados: running, paused, completed
+   - **Feedbacks Sonoros**: Usar `HTMLAudioElement` ou Web Audio API
+   - **Feedbacks Visuais**: Animações CSS e mudanças de cor por estado
 
 2. **Adicionar Tema Claro/Escuro**
    - Criar `ThemeContext`
